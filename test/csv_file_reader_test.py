@@ -1,5 +1,4 @@
 import unittest
-import os
 
 from src.readers_utils.CSVFileReader import CSVFileReader
 
