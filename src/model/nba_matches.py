@@ -24,3 +24,13 @@ class NBAMatches:
         self.__nba_matches_dataset = self.__nba_matches_dataset[
             self.__nba_matches_dataset[self.MATCH_DATE_COLUMN_NAME].between(start_date, end_date)]
         return self
+
+    def select_columns(self, columns):
+        self.__nba_matches_dataset = self.__nba_matches_dataset[columns]
+        return self
+
+    def delete_columns(self, columns):
+        self.__nba_matches_dataset = self.__nba_matches_dataset.drop(columns, axis=1)
+        return self
+
+#    def apply_function_to
