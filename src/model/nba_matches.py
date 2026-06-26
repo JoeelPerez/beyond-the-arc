@@ -17,7 +17,12 @@ class NBAMatches:
 
     def filter_team_name(self, team_name):
         self.__nba_matches_dataset = self.__nba_matches_dataset[
-            self.__nba_matches_dataset[self.TEAM_COLUMN_NAME] == team_name]
+            self.__nba_matches_dataset[self.TEAM_COLUMN_NAME].isin(team_name)]
+        return self
+
+    def filter_without_team_name(self, team_names):
+        self.__nba_matches_dataset = self.__nba_matches_dataset[
+            ~self.__nba_matches_dataset[self.TEAM_COLUMN_NAME].isin(team_names)]
         return self
 
     def filter_date(self, start_date, end_date):
@@ -33,4 +38,6 @@ class NBAMatches:
         self.__nba_matches_dataset = self.__nba_matches_dataset.drop(columns, axis=1)
         return self
 
-#    def apply_function_to
+    def apply_aggregation_by_column(self, columns, aggregation_func):
+        self.__nba_matches_dataset = getattr(self.__nba_matches_dataset.groupby(columns), aggregation_func)()
+        return self
