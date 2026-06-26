@@ -1,10 +1,9 @@
-import math
 import unittest
 
 from src.readers_utils.csv_file_reader import CSVFileReader
 from src.readers_utils.nba_matches_parser import NBAMatchesParser
-from src.statistical_transformations.data_normalizer import DataNormalizer
-from src.statistical_transformations.principal_component_analyzer import PrincipalComponentAnalyzer
+from src.operations.statistical_transformations.data_normalizer import DataNormalizer
+from src.operations.statistical_transformations.principal_component_analyzer import PrincipalComponentAnalyzer
 
 
 class PrincipalComponentAnalysisTest(unittest.TestCase):

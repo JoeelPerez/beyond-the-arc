@@ -2,7 +2,7 @@ import math
 import unittest
 
 from src.readers_utils.csv_file_reader import CSVFileReader
-from src.statistical_transformations.data_normalizer import DataNormalizer
+from src.operations.statistical_transformations.data_normalizer import DataNormalizer
 
 
 class DataNormalizerTest(unittest.TestCase):
