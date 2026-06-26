@@ -18,12 +18,12 @@ class PrincipalComponentAnalysisTest(unittest.TestCase):
         return nba_matches_dataframe[~nba_matches_dataframe.isna().any(axis=1)]
 
     def test_principal_component_analyzer_without_index(self):
-        dataframe = self.__get_dataframe(["teamScore", "opponentScore", "assists", "blocks"])
+        dataframe = self.__get_dataframe(self.selected_columns)
         pca_dataframe = PrincipalComponentAnalyzer(DataNormalizer(), 2).execute_analysis(dataframe)
         print(pca_dataframe)
 
     def test_principal_component_analyzer_with_index(self):
-        dataframe = self.__get_dataframe(["teamName", "teamScore", "opponentScore", "assists", "blocks"])
+        dataframe = self.__get_dataframe(self.selected_columns)
         pca_dataframe = PrincipalComponentAnalyzer(DataNormalizer(), 2).execute_analysis(dataframe, True)
         print(pca_dataframe)
 
